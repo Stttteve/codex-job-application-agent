@@ -1,0 +1,10 @@
+private/
+.runtime/
+__pycache__/
+*.py[cod]
+*.pdf
+*.png
+.DS_Store
+.env
+.env.*
+!.env.example

@@ -1,0 +1,32 @@
+#!/bin/sh
+set -eu
+umask 077
+
+job_workspace=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+export JOBS_ROOT="$job_workspace"
+cd "$job_workspace"
+
+case "${1:-}" in
+  jobs) job_script=jobs.py ;;
+  email-tracker) job_script=email_tracker.py ;;
+  render-resume) job_script=render_resume.py ;;
+  render-cover-letter) job_script=render_cover_letter.py ;;
+  *)
+    printf '%s\n' 'Usage: ./run {jobs|email-tracker|render-resume|render-cover-letter} [arguments]' >&2
+    exit 2
+    ;;
+esac
+shift
+
+script_path="$job_workspace/skills/apply-to-jobs/scripts/$job_script"
+if command -v uv >/dev/null 2>&1; then
+  exec uv run --script "$script_path" "$@"
+fi
+
+case "$job_script" in
+  jobs.py|email_tracker.py) exec python3 "$script_path" "$@" ;;
+  *)
+    printf '%s\n' 'PDF rendering requires uv. Install it from https://docs.astral.sh/uv/.' >&2
+    exit 1
+    ;;
+esac

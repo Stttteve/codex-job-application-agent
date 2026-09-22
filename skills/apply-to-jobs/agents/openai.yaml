@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apply to Jobs"
+  short_description: "Apply to jobs and track interview or OA email"
+  default_prompt: "Use $apply-to-jobs with my saved profile and connected inbox to complete the application batch or response-monitoring task I specify, deduplicate results, and report only confirmed submissions or actionable messages."

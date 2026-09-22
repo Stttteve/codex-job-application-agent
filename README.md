@@ -36,9 +36,49 @@ Fill `private/profile.md` and `private/resume.md` with truthful candidate data. 
 
 ## Use
 
-Invoke the skill in Codex with `$apply-to-jobs`, for example:
+Invoke the skill in Codex with `$apply-to-jobs`. Replace every value in angle brackets before sending a prompt.
+
+### 1. First-time setup
+
+Attach your current resume, then use:
+
+```text
+Use $apply-to-jobs to set up my private job-application workspace from the attached resume. Ask me only for candidate facts that are missing and cannot be inferred safely. Create private/profile.md, private/resume.md, and the base resume PDF. Do not submit any applications during setup. Never store my email password or verification codes.
+```
+
+Review the generated profile before starting an application batch.
+
+### 2. Find and automatically submit a batch
+
+```text
+Use $apply-to-jobs to find and submit exactly <NUMBER> applications for <FULL-TIME OR INTERNSHIP> roles in the United States.
+
+Target roles: <ROLE FAMILIES, FOR EXAMPLE SOFTWARE ENGINEER, PRODUCT ENGINEER, AI ENGINEER, HARDWARE ENGINEER, PRODUCT MANAGER, AI PRODUCT MANAGER>.
+Graduation date for this batch: <MONTH YEAR>.
+Location requirements: <LOCATIONS OR ANYWHERE IN THE US>.
+Work authorization and sponsorship requirements: <COPY THE TRUTHFUL ANSWERS FROM YOUR PROFILE>.
+Sources: <JOB LIST URLS OR SITES TO SEARCH>.
+
+Automatically submit matching applications without asking me to approve each one. Do not apply to a role that explicitly conflicts with my sponsorship, work-authorization, graduation-date, location, or role requirements. Do not apply twice to the same role, including when the same posting appears on multiple sites or ATS URLs. Use the connected application inbox only when verification is required. Never invent candidate information. Count an application only after a visible submission confirmation. Continue until <NUMBER> applications are confirmed or all matching sources are exhausted, and send a progress update after every five confirmed applications.
+```
+
+Example:
 
 > Use $apply-to-jobs to apply to 20 US software engineering new-grad roles that do not explicitly say they will not sponsor. Do not apply twice to the same role.
+
+### 3. Continue a previous batch
+
+```text
+Use $apply-to-jobs to continue my most recent application batch until it reaches <NUMBER> confirmed applications. Read the existing application log first, do not resubmit any applied or uncertain prior attempt, keep the original search criteria, and automatically move to another matching role when one application is blocked.
+```
+
+### 4. Monitor interview and OA email
+
+```text
+Use $apply-to-jobs in response-tracking mode and create a recurring task that checks my connected application inbox every 30 minutes. Alert me in this chat only for a new interview, recruiter screen, scheduling request, online assessment, coding assessment, HackerRank, CodeSignal, Karat, take-home assignment, offer, deadline, or other required action. Include the company, role when known, event type, sender, subject, received time, deadline, and next step. Deduplicate every alert and stay silent when nothing has changed. Never reply, modify mail, open an assessment link, start a test, or expose or store verification codes. If inbox access expires, tell me once and remain quiet until access is restored.
+```
+
+Keep the application inbox signed in or connect an email tool that Codex can read. The tracker stores only a message fingerprint and the minimum metadata required for deduplication.
 
 Useful local commands:
 
